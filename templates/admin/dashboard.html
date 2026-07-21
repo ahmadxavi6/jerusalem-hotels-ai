@@ -1,0 +1,140 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Admin Dashboard</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: Inter, sans-serif;
+        background: #0a1628;
+        color: #e2eeff;
+        padding: 24px;
+      }
+      .header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 24px;
+      }
+      h1 {
+        color: #4a90d9;
+        font-size: 22px;
+      }
+      .btn {
+        padding: 8px 16px;
+        border-radius: 8px;
+        border: none;
+        font-size: 13px;
+        font-weight: 600;
+        cursor: pointer;
+        text-decoration: none;
+        display: inline-block;
+      }
+      .btn-primary {
+        background: linear-gradient(135deg, #4a90d9, #2d6aa0);
+        color: white;
+      }
+      .btn-danger {
+        background: rgba(255, 100, 100, 0.2);
+        color: #ff6b6b;
+        border: 1px solid rgba(255, 100, 100, 0.3);
+      }
+      .btn-edit {
+        background: rgba(74, 144, 217, 0.2);
+        color: #4a90d9;
+        border: 1px solid rgba(74, 144, 217, 0.3);
+      }
+      .btn-logout {
+        background: rgba(255, 255, 255, 0.05);
+        color: #a8c4e8;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        background: rgba(13, 31, 61, 0.6);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      th {
+        background: rgba(74, 144, 217, 0.2);
+        color: #4a90d9;
+        padding: 12px 16px;
+        text-align: left;
+        font-size: 13px;
+      }
+      td {
+        padding: 12px 16px;
+        border-bottom: 1px solid rgba(74, 144, 217, 0.1);
+        font-size: 13px;
+        color: #a8c4e8;
+      }
+      tr:last-child td {
+        border-bottom: none;
+      }
+      tr:hover td {
+        background: rgba(74, 144, 217, 0.05);
+      }
+      .actions {
+        display: flex;
+        gap: 8px;
+      }
+      .stars {
+        color: #4a90d9;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <h1>🏨 Hotel Management</h1>
+      <div style="display: flex; gap: 10px">
+        <a href="/admin/add" class="btn btn-primary">+ Add Hotel</a>
+        <a href="/admin/logout" class="btn btn-logout">Logout</a>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Neighborhood</th>
+          <th>Stars</th>
+          <th>Price (NIS)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for hotel in hotels %}
+        <tr>
+          <td>{{ hotel.name }}</td>
+          <td>{{ hotel.neighborhood }}</td>
+          <td class="stars">{% for i in range(hotel.stars) %}⭐{% endfor %}</td>
+          <td>{{ hotel.price_min }}-{{ hotel.price_max }}</td>
+          <td>
+            <div class="actions">
+              <a href="/admin/edit/{{ hotel.id }}" class="btn btn-edit">Edit</a>
+              <form
+                method="POST"
+                action="/admin/delete/{{ hotel.id }}"
+                style="display: inline"
+              >
+                <button
+                  type="submit"
+                  class="btn btn-danger"
+                  onclick="return confirm('Delete this hotel?');"
+                >
+                  Delete
+                </button>
+              </form>
+            </div>
+          </td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </body>
+</html>

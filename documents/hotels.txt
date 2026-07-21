@@ -1,0 +1,89 @@
+Hotel 1: King David Hotel
+Location: 23 King David Street, Jerusalem
+Stars: 5
+Price per night: 1200-2500 NIS
+Neighborhood: City Center
+Amenities: Pool, Spa, Fine Dining, Free WiFi, Gym, Concierge
+Nearby: Old City 10 min walk, Mamilla Mall 5 min walk, Jaffa Gate 15 min walk
+Description: Jerusalem's most iconic luxury hotel. Historic building with stunning views of the Old City walls. Hosted presidents and celebrities. Perfect for luxury travelers.
+
+Hotel 2: Mamilla Hotel
+Location: 11 Shlomo HaMelech Street, Jerusalem
+Stars: 5
+Price per night: 900-2000 NIS
+Neighborhood: Mamilla
+Amenities: Rooftop Pool, Spa, Restaurant, Bar, Free WiFi, Gym
+Nearby: Old City 5 min walk, Mamilla Mall adjacent, Jaffa Gate 5 min walk
+Description: Modern luxury boutique hotel right next to the Old City. Stunning rooftop views. Perfect blend of contemporary design and Jerusalem history.
+
+Hotel 3: American Colony Hotel
+Location: 1 Louis Vincent Street, East Jerusalem
+Stars: 5
+Price per night: 800-1800 NIS
+Neighborhood: Sheikh Jarrah
+Amenities: Pool, Garden, Restaurant, Bar, Free WiFi, Spa
+Nearby: Old City 15 min walk, Damascus Gate 10 min walk
+Description: Legendary 19th century hotel beloved by journalists, diplomats and artists. Beautiful garden courtyard. Unique historical character unlike any other hotel in Jerusalem.
+
+Hotel 4: Notre Dame Guest House
+Location: 3 Paratroopers Road, Jerusalem
+Stars: 4
+Price per night: 400-800 NIS
+Neighborhood: City Center
+Amenities: Restaurant, Rooftop Terrace, Free WiFi, Chapel
+Nearby: Old City 2 min walk, New Gate immediately adjacent, Christian Quarter 5 min walk
+Description: Magnificent pontifical institute right at the entrance to the Old City. Spectacular rooftop restaurant with Old City views. Great value for central location.
+
+Hotel 5: Dan Boutique Jerusalem
+Location: 31 Hebron Road, Jerusalem
+Stars: 4
+Price per night: 350-700 NIS
+Neighborhood: Talpiot
+Amenities: Restaurant, Free WiFi, Parking, Gym
+Nearby: Malha Mall 10 min, Old City 15 min by car, Train Station 5 min walk
+Description: Modern comfortable hotel with excellent facilities. Good value for money. Popular with business travelers and families.
+
+Hotel 6: Jerusalem Gardens Hotel
+Location: 26 Blumfield Street, Jerusalem
+Stars: 4
+Price per night: 300-600 NIS
+Neighborhood: Givat Ram
+Amenities: Pool, Restaurant, Free WiFi, Parking, Garden
+Nearby: Israel Museum 5 min walk, Knesset 10 min walk, Bible Lands Museum 5 min walk
+Description: Peaceful hotel surrounded by beautiful gardens. Perfect for travelers interested in museums and cultural sites. Family friendly.
+
+Hotel 7: Abraham Hostel Jerusalem
+Location: 67 HaNevi'im Street, Jerusalem
+Stars: 3
+Price per night: 80-250 NIS
+Neighborhood: City Center
+Amenities: Shared Kitchen, Bar, Tours Desk, Free WiFi, Common Areas
+Nearby: Old City 15 min walk, Mahane Yehuda Market 10 min walk, Light Rail nearby
+Description: Jerusalem's best hostel for budget travelers and backpackers. Amazing social atmosphere. Organized tours to all major sites. Mix of dorms and private rooms.
+
+Hotel 8: Hashimi Hotel
+Location: Souq Khan al-Zeit, Muslim Quarter, Old City
+Stars: 3
+Price per night: 200-400 NIS
+Neighborhood: Old City Muslim Quarter
+Amenities: Rooftop Terrace, Free WiFi, Traditional Architecture
+Nearby: Al-Aqsa Mosque 2 min walk, Church of Holy Sepulchre 5 min walk, Via Dolorosa adjacent
+Description: Unique experience staying inside the Old City walls. Traditional Palestinian architecture. Rooftop with stunning views of Dome of the Rock. Perfect for travelers who want to be at the heart of history.
+
+Hotel 9: Mount Zion Hotel
+Location: 17 Hebron Road, Jerusalem
+Stars: 4
+Price per night: 450-900 NIS
+Neighborhood: Mount Zion
+Amenities: Pool, Restaurant, Free WiFi, Parking, Garden, Spa
+Nearby: Old City walls 2 min walk, Mount Zion immediately adjacent, Jaffa Gate 10 min walk
+Description: Boutique hotel built in a historic Ottoman building. Beautiful garden and pool. Stunning location right outside the Old City walls. Perfect romantic getaway.
+
+Hotel 10: Prima Kings Hotel
+Location: 60 King George Street, Jerusalem
+Stars: 4
+Price per night: 300-600 NIS
+Neighborhood: City Center
+Amenities: Restaurant, Free WiFi, Gym, Business Center
+Nearby: Ben Yehuda Street 5 min walk, Mahane Yehuda Market 10 min walk, Old City 20 min walk
+Description: Well located city center hotel. Great base for exploring Jerusalem. Popular with tour groups and independent travelers. Reliable and comfortable.

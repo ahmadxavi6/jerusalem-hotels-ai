@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jerusalem Hotels AI Concierge</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  </head>
+
+  <body>
+  <div class="header">
+    <div class="header-dome">🏨</div>
+    <h1>Jerusalem Hotels AI Concierge</h1>
+    <p>Powered by Claude AI · RAG Technology</p>
+    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+</div>
+
+    <div class="main">
+      <div class="chat-section">
+        <div class="chat-box" id="chat">
+          <div class="message bot-msg">
+            <span>
+              <strong>Welcome to Jerusalem! 🌟</strong><br /><br />
+              I'm your Jerusalem hotel concierge, powered by AI. I can help you
+              find the perfect hotel in any language and any currency.<br /><br />
+              Ask me about hotels, prices, locations, or compare options!
+            </span>
+          </div>
+        </div>
+        <div class="input-area">
+          <input
+            type="text"
+            id="input"
+            placeholder="Ask in English, العربية, or עברית..."
+            onkeypress="if (event.key === 'Enter') sendMessage();"
+          />
+          <button class="send-btn" onclick="sendMessage()">Send ✈️</button>
+        </div>
+      </div>
+
+      <div class="sidebar">
+        <button class="sidebar-close" onclick="toggleSidebar()">✕ Close</button>
+        <div class="sidebar-card">
+          <h3>🔄 Compare Hotels</h3>
+          <input
+            type="text"
+            id="hotel1"
+            placeholder="Hotel 1 (e.g. King David)"
+          />
+          <input
+            type="text"
+            id="hotel2"
+            placeholder="Hotel 2 (e.g. Abraham Hostel)"
+          />
+          <button class="compare-btn" onclick="compareHotels()">
+            Compare Side by Side
+          </button>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>💡 Quick Questions</h3>
+          <button
+            class="quick-btn"
+            onclick="quickAsk('What are the cheapest hotels in Jerusalem?')"
+          >
+            🏷️ Cheapest hotels
+          </button>
+          <button
+            class="quick-btn"
+            onclick="quickAsk('Which hotels are closest to the Old City?')"
+          >
+            🕌 Near Old City
+          </button>
+          <button
+            class="quick-btn"
+            onclick="quickAsk('Show me luxury 5 star hotels')"
+          >
+            ⭐ Luxury hotels
+          </button>
+          <button
+            class="quick-btn"
+            onclick="quickAsk('Which hotels have a pool?')"
+          >
+            🏊 Hotels with pool
+          </button>
+          <button
+            class="quick-btn"
+            onclick="quickAsk('Best hotels for families with children?')"
+          >
+            👨‍👩‍👧 Family friendly
+          </button>
+          <button
+            class="quick-btn"
+            onclick="quickAsk('Hotels good for business travelers?')"
+          >
+            💼 Business travel
+          </button>
+        </div>
+
+        <div class="sidebar-card">
+          <h3>🌍 Supported</h3>
+          <p style="color: #a08050; font-size: 12px; line-height: 1.8">
+            💬 English, العربية, עברית<br />
+            💰 USD $, EUR €, GBP £, NIS ₪<br />
+            🤖 Powered by Claude AI<br />
+            📚 RAG · Vector Search
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      JERUSALEM HOTELS AI · BUILT WITH CLAUDE API & CHROMADB
+    </div>
+
+    <script src="{{ url_for('static', filename='js/chat.js') }}"></script>
+    <div class="sidebar-overlay" onclick="toggleSidebar()"></div>
+  </body>
+</html>
