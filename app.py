@@ -8,7 +8,7 @@ from flask import (
     Response,
     stream_with_context,
 )
-from claude_client import ask_claude_stream, compare_hotels_stream
+from claude_client import ask_claude_stream, compare_hotels_stream, run_agent
 from rag import search_documents, search_documents_with_budget, detect_currency
 from admin import admin_bp
 
@@ -77,6 +77,31 @@ def compare_stream():
         for chunk in compare_hotels_stream(hotel1, hotel2, all_docs):
             full_response.append(chunk)
             yield f"data: {json.dumps(chunk)}\n\n"
+        yield "data: [DONE]\n\n"
+
+    return Response(stream_with_context(generate()), mimetype='text/event-stream')
+
+
+@app.route('/agent', methods=['POST'])
+def agent():
+    data = request.json
+    question = data.get('question', '')
+    session_id = data.get('session_id', 'default')
+
+    if session_id not in conversations:
+        conversations[session_id] = []
+
+    currency, rate = detect_currency(question, conversations[session_id])
+
+    full_response = []
+
+    def generate():
+        for chunk in run_agent(question, conversations[session_id], currency, rate):
+            full_response.append(chunk)
+            yield f"data: {json.dumps(chunk)}\n\n"
+
+        conversations[session_id].append({"role": "user", "content": question})
+        conversations[session_id].append({"role": "assistant", "content": "".join(full_response)})
         yield "data: [DONE]\n\n"
 
     return Response(stream_with_context(generate()), mimetype='text/event-stream')

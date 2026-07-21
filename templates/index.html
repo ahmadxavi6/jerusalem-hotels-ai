@@ -2,19 +2,26 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Jerusalem Hotels AI Concierge</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/9.1.6/marked.min.js"></script>
-<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">  </head>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='css/style.css') }}"
+    />
+  </head>
 
   <body>
-  <div class="header">
-    <div class="header-dome">🏨</div>
-    <h1>Jerusalem Hotels AI Concierge</h1>
-    <p>Powered by Claude AI · RAG Technology</p>
-    <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
-</div>
+    <div class="header">
+      <div class="header-dome">🏨</div>
+      <h1>Jerusalem Hotels AI Concierge</h1>
+      <p>Powered by Claude AI · RAG Technology</p>
+      <button class="sidebar-toggle" onclick="toggleSidebar()">☰</button>
+    </div>
 
     <div class="main">
       <div class="chat-section">
@@ -36,6 +43,13 @@
             onkeypress="if (event.key === 'Enter') sendMessage();"
           />
           <button class="send-btn" onclick="sendMessage()">Send ✈️</button>
+          <button
+            class="agent-btn"
+            onclick="sendAgent()"
+            title="🎯 Find my perfect hotel"
+          >
+            🎯 Match
+          </button>
         </div>
       </div>
 
@@ -104,7 +118,8 @@
             💬 English, العربية, עברית<br />
             💰 USD $, EUR €, GBP £, NIS ₪<br />
             🤖 Powered by Claude AI<br />
-            📚 RAG · Vector Search
+            📚 RAG · Vector Search<br />
+            🎯 AI Agent · Tool Use
           </p>
         </div>
       </div>

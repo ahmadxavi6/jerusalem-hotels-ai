@@ -349,6 +349,29 @@ body {
 .sidebar-overlay.open {
   display: block;
 }
+.agent-btn {
+    background: linear-gradient(135deg, #2d6aa0, #1a4a7a);
+    color: white;
+    border: none;
+    padding: 14px 16px;
+    border-radius: 12px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: all 0.2s;
+    flex-shrink: 0;
+    font-family: "Inter", sans-serif;
+}
+
+.agent-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 15px rgba(45, 106, 160, 0.4);
+}
+
+.agent-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
 
 /* ── MOBILE ── */
 @media (max-width: 768px) {
@@ -491,4 +514,9 @@ body {
     cursor: not-allowed;
     transform: none;
   }
+
+ .agent-btn {
+    padding: 10px 12px;
+    font-size: 16px;
+}
 }

@@ -1,23 +1,27 @@
 # 🏨 Jerusalem Hotels AI Concierge
 
-A production-grade AI-powered hotel recommendation chatbot for Jerusalem tourists, built with RAG (Retrieval Augmented Generation) using Claude API and Supabase pgvector.
+A production-grade AI-powered hotel recommendation chatbot for Jerusalem tourists, built with RAG (Retrieval Augmented Generation) and an AI Agent using Claude API and Supabase pgvector.
 
 🌐 **Live Demo:** https://jerusalem-hotels-ai-production.up.railway.app/
 
 ---
 
+
 ## 🎯 About This Project
 
 This project is not about hotels — it's about demonstrating production-grade AI engineering patterns:
-- **RAG over fine-tuning** — instead of retraining a model, we inject private data at query time using vector similarity search. This is how real companies like Notion, Intercom, and Zendesk build AI on top of their private data.
-- **Semantic search over keyword search** — pgvector finds "budget accommodation near holy sites" even if those exact words don't appear in the database.
-- **Streaming over batch** — responses stream token by token like ChatGPT, reducing perceived latency.
-- **Prompt engineering for safety** — the system refuses off-topic queries and prevents hallucination by grounding Claude strictly in retrieved context.
-- **The hotel domain is intentional** — it's a real-world use case for the RAG + AI concierge pattern used by hospitality companies, real estate platforms, and customer support systems worldwide.
+
+- **RAG over fine-tuning** — instead of retraining a model, we inject private data at query time using vector similarity search
+- **AI Agents with Tool Use** — Claude autonomously decides which tools to call and in what order, reasoning through competing user preferences
+- **Semantic search over keyword search** — pgvector finds "budget accommodation near holy sites" even if those exact words don't appear in the database
+- **Streaming over batch** — responses stream token by token like ChatGPT, reducing perceived latency
+- **Prompt engineering for safety** — the system refuses off-topic queries and prevents hallucination by grounding Claude strictly in retrieved context
+
 
 ## ✨ Features
 
 - 🤖 **RAG System** — semantic vector search using pgvector, answers based on real hotel database not AI training data
+- 🎯 **AI Agent** — Claude autonomously uses tools to find your perfect hotel based on vibe, budget and preferences
 - ⚡ **Streaming Responses** — ChatGPT-style real-time typing effect
 - 💬 **Conversation Memory** — remembers budget and preferences throughout the chat
 - 💰 **Smart Budget Filter** — automatically filters hotels within your budget
@@ -28,6 +32,30 @@ This project is not about hotels — it's about demonstrating production-grade A
 - 📱 **Mobile Responsive** — sidebar drawer navigation on mobile
 - 🛠️ **Admin Panel** — full CRUD interface to manage hotels at `/admin`
 - 🐳 **Docker** — containerized for easy local deployment
+
+## 🎯 AI Agent — How It Works
+
+The 🎯 Match button triggers an AI agent that:
+
+1. Reads your **entire conversation history** to extract preferences
+2. Autonomously decides which **tools to call** (search_hotels, get_all_hotels)
+3. **Reasons through tradeoffs** — e.g. pool vs proximity to Al-Aqsa
+4. Picks the **single best hotel** with a clear explanation
+5. References **specific things you mentioned** earlier in the conversation
+
+This is Claude's **Tool Use API** in action — not a simple chatbot but an autonomous agent making decisions.
+
+**Example:**
+```
+User: "I like pools"
+User: "budget around $100"
+User: "I want to be close to Al-Aqsa"
+→ Click 🎯 Match
+→ Agent searches database with all 3 preferences
+→ Finds conflict: pool hotels are far from Al-Aqsa
+→ Makes judgment call: location > pool
+→ Picks Hashimi Hotel and explains the tradeoff
+```
 
 ## 🏗️ Architecture
 
@@ -43,6 +71,17 @@ Budget filter + Currency detection
 Claude API with streaming (answer based on relevant hotels + history)
       ↓
 User gets streamed answer in their language and currency
+
+🎯 Agent Mode:
+User preferences (from full conversation history)
+      ↓
+Claude Agent (Tool Use API)
+      ↓
+Autonomous tool calls → search_hotels, get_all_hotels
+      ↓
+Reasoning through tradeoffs
+      ↓
+Single best recommendation with explanation
 ```
 
 ## 🛠️ Tech Stack
@@ -50,7 +89,7 @@ User gets streamed answer in their language and currency
 | Layer | Technology |
 |---|---|
 | Backend | Python + Flask |
-| AI | Claude API (Anthropic) — streaming |
+| AI | Claude API (Anthropic) — streaming + tool use |
 | Vector DB | Supabase + pgvector |
 | Embeddings | sentence-transformers (all-MiniLM-L6-v2) |
 | Frontend | HTML + CSS + JavaScript |
@@ -105,7 +144,7 @@ Access at `/admin` with your admin password.
 
 - View all hotels in a dashboard table
 - Add new hotels — embedding generated automatically
-- Edit existing hotels — embedding regenerated automatically  
+- Edit existing hotels — embedding regenerated automatically
 - Delete hotels
 
 ## 📁 Project Structure
@@ -114,19 +153,15 @@ Access at `/admin` with your admin password.
 jerusalem-hotels-ai/
 ├── app.py                  # Flask routes + streaming endpoints
 ├── rag.py                  # Supabase pgvector search + budget/currency filter
-├── claude_client.py        # Claude API + streaming responses
+├── claude_client.py        # Claude API + streaming + agent tool use
 ├── admin.py                # Admin panel blueprint + CRUD
 ├── seed.py                 # One-time database seeding with embeddings
 ├── static/
 │   ├── css/main.css        # Ocean Blue responsive UI
-│   └── js/chat.js          # Streaming frontend + compare logic
+│   └── js/chat.js          # Streaming frontend + agent + compare logic
 ├── templates/
 │   ├── index.html          # Chat UI
 │   └── admin/              # Admin panel templates
-│       ├── login.html
-│       ├── dashboard.html
-│       ├── add.html
-│       └── edit.html
 ├── Dockerfile
 ├── docker-compose.yml
 ├── requirements.txt
