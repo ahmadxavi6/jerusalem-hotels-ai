@@ -6,6 +6,15 @@ A production-grade AI-powered hotel recommendation chatbot for Jerusalem tourist
 
 ---
 
+## 🎯 About This Project
+
+This project is not about hotels — it's about demonstrating production-grade AI engineering patterns:
+- **RAG over fine-tuning** — instead of retraining a model, we inject private data at query time using vector similarity search. This is how real companies like Notion, Intercom, and Zendesk build AI on top of their private data.
+- **Semantic search over keyword search** — pgvector finds "budget accommodation near holy sites" even if those exact words don't appear in the database.
+- **Streaming over batch** — responses stream token by token like ChatGPT, reducing perceived latency.
+- **Prompt engineering for safety** — the system refuses off-topic queries and prevents hallucination by grounding Claude strictly in retrieved context.
+- **The hotel domain is intentional** — it's a real-world use case for the RAG + AI concierge pattern used by hospitality companies, real estate platforms, and customer support systems worldwide.
+
 ## ✨ Features
 
 - 🤖 **RAG System** — semantic vector search using pgvector, answers based on real hotel database not AI training data
