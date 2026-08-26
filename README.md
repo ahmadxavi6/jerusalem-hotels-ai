@@ -2,7 +2,6 @@
 
 A production-grade AI-powered hotel recommendation chatbot for Jerusalem tourists, built with RAG (Retrieval Augmented Generation) and an AI Agent using Claude API and Supabase pgvector.
 
-🌐 **Live Demo:** https://jerusalem-hotels-ai-production.up.railway.app/
 
 ---
 
